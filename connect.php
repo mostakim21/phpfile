@@ -1,20 +1,20 @@
 <?php
 		
-	if(isset($_POST['submit'])){
+	
 	$first_name=$_POST['first_name'];
 	$last_name=$_POST['last_name'];
-	$Email=$_POST['Email'];
-	$Password=$_POST['Password'];
+	$Email=$_POST['email'];
+	$Password=$_POST['password'];
 	
 
-	$connection= mysqli_connect('localhost','root','','first');
+	$connection= mysqli_connect('localhost','root','','mostakim');
 
 	if (!$connection) {
 		die( "not connected." . mysqli_error());
 	}
 
-	$query="INSERT INTO learn (firstName, lastName, email, password)";
-	$query .="VALUES ('$first_name','$last_name','$Email','$Password')";
+	$query="INSERT INTO learn (first_name, last_name, email, password)
+	VALUES ('$first_name','$last_name','$Email','$Password')";
 
 		$result=mysqli_query($connection,$query);
 
@@ -23,7 +23,7 @@
 		}else{
 			echo "failed";
 		}
-	}	
+		
 
 
 ?>
